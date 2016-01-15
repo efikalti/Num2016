@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from math import exp, pow, sin, cos
+from math import pow
 from random import uniform
 
 
@@ -215,9 +215,9 @@ if __name__ == '__main__':
         print "Starting modified Secant method to find the root of the equations with starting values ", 0, ",", 1 , ",", right, "."
         root = modified_secant(0, 1, right)
         message(root)
-        print "Starting modified Secant method to find the root of the equations with starting values ", -2, ",", -1.5 , ",", -1, "."
-        root = modified_secant(-2, -1.5, -1)
+        print "Starting modified Secant method to find the root of the equations with starting values ", -1.5, ",", -1.4 , ",", -1.2, "."
+        root = modified_secant(-1.5, -1.4, -1.2)
         message(root)
-        print "Starting modified Secant method to find the root of the equations with starting values ", 1, ",", 1.5 , ",", right, "."
-        root = modified_secant(1, 1.5, right)
+        print "Starting modified Secant method to find the root of the equations with starting values ", 1, ",", 1.2 , ",", 1.5, "."
+        root = modified_secant(1, 1.2, 1.5)
         message(root)
