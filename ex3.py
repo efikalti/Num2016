@@ -51,19 +51,20 @@ def gauss(A):
 
 if __name__ == "__main__":
     from fractions import Fraction
+
     n = 3
-
+    # Matrix to be used in creating fractions for matrix A
     B = [[randint(0, 10) for x in range(n+1)] for x in range(n)]
-
+    # The matrix with the linear system
     A = [[0 for j in range(n+1)] for i in range(n)]
 
-    # Read input data
+    #  Create matrix data
     for i in range(0, n):
         line = map(Fraction, B[i])
         for j, el in enumerate(line):
             A[i][j] = el
 
-    # Print input
+    # Print matrix
     pprint(A)
 
     # Calculate solution

@@ -9,12 +9,14 @@ def equation(x, rounded=True):
         fx = float(format(fx, '.4f'))
     return fx
 
+
 def first_derivative(x, rounded=True):
     sinx = sin(x)
     fx = 3 * exp( pow ( sinx , 3 ) ) * pow ( sinx , 2 ) * cos(x) + 6 * pow( x , 5 ) - 8 * pow( x , 3 ) - 3 * pow( x , 2 )
     if rounded:
         fx = float(format(fx, '.4f'))
     return fx
+
 
 def second_derivative(x, rounded=True):
     sinx = sin(x)
@@ -23,6 +25,7 @@ def second_derivative(x, rounded=True):
     if rounded:
         fx = float(format(fx, '.4f'))
     return fx
+
 
 def partition(left, right, current=0):
     current += 1
@@ -135,49 +138,42 @@ if __name__ == '__main__':
     left = -2
     right = 2
 
-    r = frange(left, right, 0.01)
-    for i in r:
-        if equation(i) < 0 :
-            break
-    if i == 2 :
-        print "Equation has no root in the range [", left, ",", right , "]"
-    else:
 
-        # Partition method
-        print "Starting Partition method to find the root of the equations in the range[", left, ",", right , "]"
-        root = partition(left, right)
-        message(root)
-        print "Starting Partition method to find the root of the equations in the range[", left, ",", root+1 , "]"
-        root = partition(left, root+1)
-        message(root)
-        print "Starting Partition method to find the root of the equations in the range[", root+1, ",", right , "]"
-        root = partition(root+1, right)
-        message(root)
+    # Partition method
+    print "Starting Partition method to find the root of the equations in the range[", left, ",", right , "]"
+    root = partition(left, right)
+    message(root)
+    print "Starting Partition method to find the root of the equations in the range[", left, ",", root+1 , "]"
+    root = partition(left, root+1)
+    message(root)
+    print "Starting Partition method to find the root of the equations in the range[", root+1, ",", right , "]"
+    root = partition(root+1, right)
+    message(root)
 
-        # Newton-Raphson method
-        x0 = Newton_Raphson_initial_point(left, right)
+    # Newton-Raphson method
+    x0 = Newton_Raphson_initial_point(left, right)
 
-        print "Starting Newton-Raphson method to find the root of the equations in the range[", left, ",", right , "], with x0 = ", x0
-        root = Newton_Raphson(x0)
-        message(root)
+    print "Starting Newton-Raphson method to find the root of the equations in the range[", left, ",", right , "], with x0 = ", x0
+    root = Newton_Raphson(x0)
+    message(root)
 
-        x0 = Newton_Raphson_initial_point(root+2, right)
-        print "Starting Newton-Raphson method to find the root of the equations in the range[", root+2, ",", right , "], with x0 = ", x0
-        root = Newton_Raphson(x0)
-        message(root)
+    x0 = Newton_Raphson_initial_point(root+2, right)
+    print "Starting Newton-Raphson method to find the root of the equations in the range[", root+2, ",", right , "], with x0 = ", x0
+    root = Newton_Raphson(x0)
+    message(root)
 
-        x0 = Newton_Raphson_initial_point(0, right)
-        print "Starting Newton-Raphson method to find the root of the equations in the range[", 0, ",", right , "], with x0 = ", x0
-        root = Newton_Raphson(x0)
-        message(root)
+    x0 = Newton_Raphson_initial_point(0, right)
+    print "Starting Newton-Raphson method to find the root of the equations in the range[", 0, ",", right , "], with x0 = ", x0
+    root = Newton_Raphson(x0)
+    message(root)
 
-        # Secant method
-        print "Starting Secant method to find the root of the equations in the range[", left, ",", right , "]"
-        root = secant(left, right)
-        message(root)
-        print "Starting Secant method to find the root of the equations in the range[", left, ",", 0 , "]"
-        root = secant(left, 0)
-        message(root)
-        print "Starting Secant method to find the root of the equations in the range[", left, ",", -1 , "]"
-        root = secant(left, -1)
-        message(root)
+    # Secant method
+    print "Starting Secant method to find the root of the equations in the range[", left, ",", right , "]"
+    root = secant(left, right)
+    message(root)
+    print "Starting Secant method to find the root of the equations in the range[", left, ",", 0 , "]"
+    root = secant(left, 0)
+    message(root)
+    print "Starting Secant method to find the root of the equations in the range[", left, ",", -1 , "]"
+    root = secant(left, -1)
+    message(root)
